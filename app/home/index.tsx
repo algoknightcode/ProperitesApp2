@@ -9,7 +9,7 @@ import PropertyTypes from "@/components/PropertyTypes";
 import PropertyChoice from "@/components/PropertyChoice";
 import PopularTools from "@/components/PopularTools";
 import SidebarMenu from "@/components/SidebarMenu";
-
+import PropertyDetail from "@/components/PropertiyDetail";
 const styles = {
   container: "flex-1 bg-slate-50",
 };
@@ -25,12 +25,14 @@ export default function HomeScreen() {
         showsVerticalScrollIndicator={false}
       >
         <Navbar onMenuPress={() => setOpen(true)} />
-        <Header />
         <CategoryCarousel />
+        <Header />
+    
         <SimilarProperties />
         <PropertyTypes />
         <PropertyChoice />
         <PopularTools />
+       
       </ScrollView>
 
       <SidebarMenu

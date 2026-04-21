@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./LocareScoreUI";
+import BackHeader from '@/components/BackHeader';
 
 export default function LocateScorePage() {
   const [metro, setMetro] = useState("");
@@ -40,6 +41,8 @@ export default function LocateScorePage() {
   };
 
   return (
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
+    <BackHeader />
     <ScrollView className={styles.container}>
       <View className={styles.hero}>
         <View className={styles.iconBox}>
@@ -198,5 +201,6 @@ export default function LocateScorePage() {
       </View>
 
     </ScrollView>
+    </View>
   );
 }

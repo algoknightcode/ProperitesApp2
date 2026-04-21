@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from  './emiUI';
+import BackHeader from '@/components/BackHeader';
 
 export default function EMIPage() {
   const [loan, setLoan] = useState("");
@@ -46,6 +47,8 @@ export default function EMIPage() {
     total > 0 ? (Number(loan) / total) * 100 : 0;
 
   return (
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
+    <BackHeader />
     <ScrollView
       className={styles.container}
       showsVerticalScrollIndicator={false}
@@ -215,5 +218,6 @@ export default function EMIPage() {
       </View>
 
     </ScrollView>
+    </View>
   );
 }

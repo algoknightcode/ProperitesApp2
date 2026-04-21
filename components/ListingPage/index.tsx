@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons, Feather } from "@expo/vector-icons";
+import { router } from "expo-router";
 import { styles } from "./listingUI";
 
 const propertyData = [
@@ -183,62 +184,110 @@ export default function ListingsPage() {
       <Text className={styles.resultText}>16K RESULTS | Flats in Noida for Sale</Text>
 
       {/* Cards */}
-      {propertyData.map((item) => (
-        <View key={item.id} className={styles.card}>
-          <Image source={{ uri: item.image }} className={styles.image} />
+{propertyData.map((item) => (
+  <TouchableOpacity
+    key={item.id}
+    className={styles.card}
+    activeOpacity={0.95}
+    onPress={() =>
+      router.push(`/propertyDetail/${item.id}` as any)
+    }
+  >
+    <Image
+      source={{ uri: item.image }}
+      className={styles.image}
+    />
 
-          <View className={styles.badgeRow}>
-            <Text className={styles.badgeDark}>Zero Brokerage</Text>
-            <TouchableOpacity className={styles.heartBtn}>
-              <Ionicons name="heart-outline" size={20} color="#fff" />
-            </TouchableOpacity>
-          </View>
+    <View className={styles.badgeRow}>
+      <Text className={styles.badgeDark}>
+        Zero Brokerage
+      </Text>
 
-          <View className={styles.bottomTag}>
-            <Text className="text-white text-xs">{item.status}</Text>
-          </View>
+      <TouchableOpacity
+        className={styles.heartBtn}
+      >
+        <Ionicons
+          name="heart-outline"
+          size={20}
+          color="#fff"
+        />
+      </TouchableOpacity>
+    </View>
 
-          <View className="p-4">
-            <View className="flex-row justify-between items-center">
-              <Text className={styles.title}>{item.title}</Text>
-              <Text className={styles.yellowTag}>{item.tag}</Text>
-            </View>
+    <View className={styles.bottomTag}>
+      <Text className="text-white text-xs">
+        {item.status}
+      </Text>
+    </View>
 
-            <Text className={styles.location}>{item.location}</Text>
+    <View className="p-4">
+      <View className="flex-row justify-between items-center">
+        <Text className={styles.title}>
+          {item.title}
+        </Text>
 
-            <View className="flex-row justify-between mt-4">
-              <View>
-                <Text className={styles.smallText}>1 BHK Apartment</Text>
-                <Text className={styles.price}>{item.price1}</Text>
-              </View>
+        <Text className={styles.yellowTag}>
+          {item.tag}
+        </Text>
+      </View>
 
-              <View>
-                <Text className={styles.smallText}>2 BHK Apartment</Text>
-                <Text className={styles.price}>{item.price2}</Text>
-              </View>
+      <Text className={styles.location}>
+        {item.location}
+      </Text>
 
-              <View>
-                <Text className={styles.smallText}>3 BHK Apartment</Text>
-                <Text className={styles.price}>{item.price3}</Text>
-              </View>
-            </View>
-
-            <Text className={styles.areaPrice}>
-              ₹27,000 /sqft onwards (super area)
-            </Text>
-
-            <View className="flex-row gap-3 mt-4">
-              <TouchableOpacity className={styles.outlineBtn}>
-                <Text className={styles.outlineText}>Brochure</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity className={styles.fillBtn}>
-                <Text className={styles.fillText}>View Number</Text>
-              </TouchableOpacity>
-            </View>
-          </View>
+      <View className="flex-row justify-between mt-4">
+        <View>
+          <Text className={styles.smallText}>
+            1 BHK Apartment
+          </Text>
+          <Text className={styles.price}>
+            {item.price1}
+          </Text>
         </View>
-      ))}
+
+        <View>
+          <Text className={styles.smallText}>
+            2 BHK Apartment
+          </Text>
+          <Text className={styles.price}>
+            {item.price2}
+          </Text>
+        </View>
+
+        <View>
+          <Text className={styles.smallText}>
+            3 BHK Apartment
+          </Text>
+          <Text className={styles.price}>
+            {item.price3}
+          </Text>
+        </View>
+      </View>
+
+      <Text className={styles.areaPrice}>
+        ₹27,000 /sqft onwards (super area)
+      </Text>
+
+      <View className="flex-row gap-3 mt-4">
+        <TouchableOpacity
+          className={styles.outlineBtn}
+        >
+          <Text className={styles.outlineText}>
+            Brochure
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          className={styles.fillBtn}
+        >
+          <Text className={styles.fillText}>
+            View Number
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </TouchableOpacity>
+))}
     </View>
   );
 }

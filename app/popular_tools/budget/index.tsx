@@ -8,6 +8,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./budgetUI";
+import BackHeader from '@/components/BackHeader';
 
 export default function BudgetPage() {
   const [income, setIncome] = useState("");
@@ -49,6 +50,8 @@ export default function BudgetPage() {
   const percent = budget > 0 ? Math.min((budget / 10000000) * 100, 100) : 0;
 
   return (
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
+    <BackHeader />
     <ScrollView className={styles.container}>
       <View className={styles.hero}>
         <View className={styles.iconBox}>
@@ -189,5 +192,6 @@ export default function BudgetPage() {
         </Text>
       </View>
     </ScrollView>
+    </View>
   );
 }

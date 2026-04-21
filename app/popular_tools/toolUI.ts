@@ -1,5 +1,5 @@
 export const styles = {
-    container: "flex-1 bg-white px-4 pt-12",
+    container: "flex-1 bg-white px-4 pt-4",
     heading: "text-2xl font-bold text-slate-900",
     subHeading: "text-base text-slate-500 mt-2 mb-6",
     gridWrap: "flex-row flex-wrap justify-between",

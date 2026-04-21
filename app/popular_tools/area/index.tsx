@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./areaUI";
+import BackHeader from '@/components/BackHeader';
 
 export default function AreaPage() {
   const [value, setValue] = useState("");
@@ -30,6 +31,8 @@ export default function AreaPage() {
   };
 
   return (
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
+    <BackHeader />
     <ScrollView className={styles.container}>
       <View className={styles.hero}>
         <View className={styles.iconBox}>
@@ -145,5 +148,6 @@ export default function AreaPage() {
       </View>
 
     </ScrollView>
+    </View>
   );
 }

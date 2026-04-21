@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import { router } from "expo-router";
 import { Ionicons, MaterialIcons } from "@expo/vector-icons";
 import { styles } from './toolUI';
+import BackHeader from '@/components/BackHeader';
 
 const toolsData = [
     {
@@ -44,7 +45,9 @@ const toolsData = [
 
 export default function PopularToolsPage() {
     return (
-        <View className={styles.container}>
+        <View style={{ flex: 1, backgroundColor: '#fff' }}>
+            <BackHeader />
+            <View className={styles.container}>
             <Text className={styles.heading}>
                 Popular Tools
             </Text>
@@ -71,5 +74,6 @@ export default function PopularToolsPage() {
                 ))}
             </View>
         </View>
+            </View>
     );
 }

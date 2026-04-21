@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { styles } from "./LoanUi";
+import BackHeader from '@/components/BackHeader';
 
 export default function LoanPage() {
   const [salary, setSalary] = useState("");
@@ -36,6 +37,8 @@ export default function LoanPage() {
   const percent = Math.min((loan / 10000000) * 100, 100);
 
   return (
+    <View style={{ flex: 1, backgroundColor: '#f8fafc' }}>
+    <BackHeader />
     <ScrollView className={styles.container}>
       <View className={styles.hero}>
         <View className={styles.iconBox}>
@@ -181,5 +184,6 @@ export default function LoanPage() {
       </View>
 
     </ScrollView>
+    </View>
   );
 }
